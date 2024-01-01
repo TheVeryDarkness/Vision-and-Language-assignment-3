@@ -51,7 +51,14 @@ class Attention(nn.Module):
         you should also apply dropout to the attention scores, and return the mean attention scores over all heads.
         """
         #--- You should implement the linear projection here. ---#
-        raise NotImplementedError
+        batch, L, D = query_states.size()
+        mixed_query_layer = self.query(query_states)
+        mixed_key_layer = self.key(key_states)
+        mixed_value_layer = self.value(value_states)
+
+        query_layer = self.transpose_for_scores(mixed_query_layer)  # (N, nh, Lq, dh)
+        key_layer = self.transpose_for_scores(mixed_key_layer)  # (N, nh, L, dh)
+        value_layer = self.transpose_for_scores(mixed_value_layer)  # (N, nh, L, dh)
     
         #####################################
         #--- You don't need to change the code in this part. ---#
@@ -70,7 +77,24 @@ class Attention(nn.Module):
         ##################################################
 
         #--- You should implement the attention here ---#
-        raise NotImplementedError
+        
+        # Representation Reconstruction
+        # Take the dot product between "query" and "key" to get the raw attention scores.
+        attention_scores = torch.matmul(query_layer, key_layer.transpose(-1, -2))  # (N, nh, Lq, L)
+        attention_scores = attention_scores / math.sqrt(self.attention_head_size)
+        # Apply the attention mask is (precomputed for all layers in BertModel forward() function)
+
+        # Normalize the attention scores to probabilities.
+        attention_probs = nn.Softmax(dim=-1)(attention_scores)
+
+        # This is actually dropping out entire tokens to attend to, which might
+        # seem a bit unusual, but is taken from the original Transformer paper.
+        attention_probs = self.dropout(attention_probs)
+
+        context_layer = torch.matmul(attention_probs, value_layer)
+        context_layer = context_layer.permute(0, 2, 1, 3).contiguous()
+        new_context_layer_shape = context_layer.size()[:-2] + (self.all_head_size,)
+        context_layer = context_layer.view(*new_context_layer_shape)
 
         #--- You don't need to change the code in this part. ---#
         context_layer += query_states
