@@ -300,8 +300,9 @@ class CrossEn(nn.Module):
         :param sim_matrix: similarity matrix of size (batch_size, batch_size), unnormailzed
         :return: loss (scalar)
         """
+
+        # See ../models/CBR.py
+
         logpt = F.log_softmax(sim_matrix, dim=-1)
         logpt = torch.diag(logpt)
-        nce_loss = -logpt
-        sim_loss = nce_loss.mean()
-        return sim_loss
+        return -logpt.mean()

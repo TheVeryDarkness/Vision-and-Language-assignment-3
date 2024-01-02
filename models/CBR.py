@@ -7,10 +7,11 @@ import math
 
 
 class CrossEn(nn.Module):
+
     def __init__(self):
         super(CrossEn, self).__init__()
 
-    def forward(self, sim_matrix):
+    def forward(self, sim_matrix: torch.Tensor):
         """
         == To Implement ==
         calculates the InfoNCE loss from sample-wise similarity matrix
@@ -18,11 +19,26 @@ class CrossEn(nn.Module):
         :return: loss (scalar)
         """
         
+        r"""
+        :math:`sim\_matrix_{i, j} = \exp(MTM(\tilde{X}_i^a, \tilde{X}_j^b) / \tau)`
+        """
+
+        # I think this is mostly **Cross Entropy**.
+        # It seems I can't find a temperature here,
+        # and the class name is **CrossEn**.
+        # :)
+
+        # See:
+        # https://arxiv.org/pdf/1807.03748.pdf
+        # https://github.com/RElbers/info-nce-pytorch/blob/main/info_nce/__init__.py
+        # https://pytorch.org/docs/stable/generated/torch.nn.functional.log_softmax.html
+
+        # (B, B)
         logpt = F.log_softmax(sim_matrix, dim=-1)
+        # (B, )
         logpt = torch.diag(logpt)
-        nce_loss = -logpt
-        sim_loss = nce_loss.mean()
-        return sim_loss
+        # Scalar
+        return -logpt.mean()
 
 class ContraAttention(nn.Module):
     def __init__(self, cfg):
@@ -45,7 +61,7 @@ class ContraAttention(nn.Module):
         x = x.view(*new_x_shape)
         return x.permute(0, 2, 1, 3)  # (N, nh, L, dh)
 
-    def forward(self, query_states, key_states, attentin_mask):
+    def forward(self, query_states: torch.Tensor, key_states: torch.Tensor, attentin_mask: torch.Tensor):
         """
         Args:
             query_states: (N, Lq, D)
@@ -82,6 +98,10 @@ class ContraAttention(nn.Module):
 
 class CBR(nn.Module):
 
+  '''
+  Cross-modal Backward Reasoning.
+  '''
+
   def __init__(self, cfg):
     super().__init__()
     embed_dim = 512
@@ -96,9 +116,11 @@ class CBR(nn.Module):
 
     self.loss = CrossEn()
 
-  def forward(self, bef_feat, sent_feat, aft_feat, masks, soft_triplet_loss=True):
+  def forward(self, bef_feat: torch.Tensor, sent_feat: torch.Tensor, aft_feat: torch.Tensor, masks: torch.Tensor, soft_triplet_loss=True):
       batch, max_v_len, d_feat = bef_feat.shape[:]
       max_l_len = masks.shape[-1]
+
+      # Step 2 starts.
 
       masks_new = masks.view(batch, max_l_len, 1).expand(-1, -1, d_feat)
       sent_feat = sent_feat * masks_new
@@ -109,17 +131,33 @@ class CBR(nn.Module):
       v1_feat = torch.cat([bef_feat, text_feat], 1)  # B x 2D x H x W
       v1_feat = self.conv1(v1_feat)  # B x D x H x W
       v1_feat = v1_feat.view(batch, d_feat, 14 * 14).permute(2, 0, 1)  # H*W x B x D
+
+      # Step 2 ends.
+
+      # Step 3 starts.
+      # Reconstruct the “after” representation.
+
       self_att, _ = self.mh_att(v1_feat, v1_feat, v1_feat)  # H*W x B x D
       self_att = self_att.view(14, 14, batch, d_feat).permute(2, 3, 0,
                                                    1)  # B x D x H x W
       self_att = self.conv2(self_att)  # B x D x H x W
 
+      # Step 3 ends.
+      
+      # Step 4 starts.
+      # Use InfoNCE between reconstructed hallucination representations.
+
       vid_mask = torch.Tensor(np.ones([batch, max_v_len])).cuda()
 
       mod_img1 = self_att.view(batch, d_feat, -1).permute(0, 2, 1)
 
+      # Lh2a, La2h
       contra_score1, contra_score2 = self.contra(mod_img1, aft_feat, vid_mask)
+
+      # Lcm = (Lh2a + La2h) / 2
       loss = (self.loss(contra_score1) + self.loss(contra_score2)) / 2.0
+
+      # Step 4 ends.
 
       return loss
 

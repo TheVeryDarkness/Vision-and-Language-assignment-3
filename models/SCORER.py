@@ -27,12 +27,12 @@ class Attention(nn.Module):
         self.dropout = nn.Dropout(0.1)
         self.logit_scale = nn.Parameter(torch.ones([]))
 
-    def transpose_for_scores(self, x):
+    def transpose_for_scores(self, x: torch.Tensor):
         new_x_shape = x.size()[:-1] + (self.num_attention_heads, self.attention_head_size)  # (N, L, nh, dh)
         x = x.view(*new_x_shape)
         return x.permute(0, 2, 1, 3)  # (N, nh, L, dh)
 
-    def forward(self, query_states, key_states, value_states):
+    def forward(self, query_states: torch.Tensor, key_states: torch.Tensor, value_states: torch.Tensor):
         """
         Args:
             query_states: (N, Lq, D)
@@ -155,7 +155,7 @@ class ChangeDetector(nn.Module):
             nn.ReLU(),
         )
 
-    def forward(self, input_1, input_2):
+    def forward(self, input_1: torch.Tensor, input_2: torch.Tensor):
         batch_size, C, H, W = input_1.size()
 
         input_1 = self.img(input_1)  # (128,196, 512)
