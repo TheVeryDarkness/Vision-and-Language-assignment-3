@@ -1,0 +1,6 @@
+[submodule "Contrastive-Predictive-Coding-PyTorch"]
+	path = Contrastive-Predictive-Coding-PyTorch
+	url = https://github.com/jefflai108/Contrastive-Predictive-Coding-PyTorch
+[submodule "info-nce-pytorch"]
+	path = info-nce-pytorch
+	url = https://github.com/RElbers/info-nce-pytorch
