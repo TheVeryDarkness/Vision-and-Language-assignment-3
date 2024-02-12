@@ -34,11 +34,11 @@ class CrossEn(nn.Module):
         # https://pytorch.org/docs/stable/generated/torch.nn.functional.log_softmax.html
 
         # (B, B)
-        logpt = F.log_softmax(sim_matrix, dim=-1)
+        log_softmax = F.log_softmax(sim_matrix, dim=-1)
         # (B, )
-        logpt = torch.diag(logpt)
+        diag_log_softmax = torch.diag(log_softmax)
         # Scalar
-        return -logpt.mean()
+        return -diag_log_softmax.mean()
 
 class ContraAttention(nn.Module):
     def __init__(self, cfg):

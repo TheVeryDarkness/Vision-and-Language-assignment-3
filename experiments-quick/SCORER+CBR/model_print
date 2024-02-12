@@ -1,0 +1,110 @@
+ChangeDetector(
+  (img): Sequential(
+    (0): Conv2d(1026, 512, kernel_size=(1, 1), stride=(1, 1))
+  )
+  (w_embedding): Embedding(14, 256)
+  (h_embedding): Embedding(14, 256)
+  (scorer): ModuleList(
+    (0): SCORER(
+      (attention): Attention(
+        (query): Linear(in_features=512, out_features=512, bias=True)
+        (key): Linear(in_features=512, out_features=512, bias=True)
+        (value): Linear(in_features=512, out_features=512, bias=True)
+        (layer_norm): LayerNorm((512,), eps=1e-06, elementwise_affine=True)
+        (dropout): Dropout(p=0.1, inplace=False)
+      )
+    )
+    (1): SCORER(
+      (attention): Attention(
+        (query): Linear(in_features=512, out_features=512, bias=True)
+        (key): Linear(in_features=512, out_features=512, bias=True)
+        (value): Linear(in_features=512, out_features=512, bias=True)
+        (layer_norm): LayerNorm((512,), eps=1e-06, elementwise_affine=True)
+        (dropout): Dropout(p=0.1, inplace=False)
+      )
+    )
+  )
+  (embed_fc): Sequential(
+    (0): Linear(in_features=1024, out_features=512, bias=True)
+    (1): Dropout(p=0.1, inplace=False)
+    (2): ReLU()
+  )
+)
+Speaker(
+  (core): DynamicCore(
+    (fc): Sequential(
+      (0): Linear(in_features=300, out_features=512, bias=True)
+      (1): Dropout(p=0.1, inplace=False)
+      (2): LayerNorm((512,), eps=1e-06, elementwise_affine=True)
+    )
+    (position_enc): PositionEncoding()
+    (embed): Embedding(76, 300, padding_idx=0)
+    (layer): ModuleList(
+      (0): DecoderLayer(
+        (self_attention): SelfAttention(
+          (query): Linear(in_features=512, out_features=512, bias=True)
+          (key): Linear(in_features=512, out_features=512, bias=True)
+          (value): Linear(in_features=512, out_features=512, bias=True)
+          (dropout): Dropout(p=0.1, inplace=False)
+        )
+        (norm1): LayerNorm((512,), eps=1e-06, elementwise_affine=True)
+        (dec_enc_attention): CrossAttention(
+          (query): Linear(in_features=512, out_features=512, bias=True)
+          (key): Linear(in_features=512, out_features=512, bias=True)
+          (value): Linear(in_features=512, out_features=512, bias=True)
+          (dropout): Dropout(p=0.1, inplace=False)
+        )
+        (hidden_intermediate): Intermediate(
+          (dense): Linear(in_features=512, out_features=512, bias=True)
+        )
+        (norm2): LayerNorm((512,), eps=1e-06, elementwise_affine=True)
+        (output): Output(
+          (dense): Linear(in_features=512, out_features=512, bias=True)
+          (LayerNorm): LayerNorm((512,), eps=1e-06, elementwise_affine=True)
+          (dropout): Dropout(p=0.1, inplace=False)
+        )
+      )
+      (1): DecoderLayer(
+        (self_attention): SelfAttention(
+          (query): Linear(in_features=512, out_features=512, bias=True)
+          (key): Linear(in_features=512, out_features=512, bias=True)
+          (value): Linear(in_features=512, out_features=512, bias=True)
+          (dropout): Dropout(p=0.1, inplace=False)
+        )
+        (norm1): LayerNorm((512,), eps=1e-06, elementwise_affine=True)
+        (dec_enc_attention): CrossAttention(
+          (query): Linear(in_features=512, out_features=512, bias=True)
+          (key): Linear(in_features=512, out_features=512, bias=True)
+          (value): Linear(in_features=512, out_features=512, bias=True)
+          (dropout): Dropout(p=0.1, inplace=False)
+        )
+        (hidden_intermediate): Intermediate(
+          (dense): Linear(in_features=512, out_features=512, bias=True)
+        )
+        (norm2): LayerNorm((512,), eps=1e-06, elementwise_affine=True)
+        (output): Output(
+          (dense): Linear(in_features=512, out_features=512, bias=True)
+          (LayerNorm): LayerNorm((512,), eps=1e-06, elementwise_affine=True)
+          (dropout): Dropout(p=0.1, inplace=False)
+        )
+      )
+    )
+  )
+  (logit): Linear(in_features=512, out_features=76, bias=True)
+  (loss_func): CrossEntropyLoss()
+)
+CBR(
+  (conv1): Conv2d(1024, 512, kernel_size=(1, 1), stride=(1, 1))
+  (mh_att): MultiheadAttention(
+    (out_proj): _LinearWithBias(in_features=512, out_features=512, bias=True)
+  )
+  (conv2): Sequential(
+    (0): Conv2d(512, 512, kernel_size=(1, 1), stride=(1, 1))
+  )
+  (contra): ContraAttention(
+    (query): Linear(in_features=512, out_features=512, bias=True)
+    (key): Linear(in_features=512, out_features=512, bias=True)
+  )
+  (loss): CrossEn()
+)
+AddSpatialInfo()

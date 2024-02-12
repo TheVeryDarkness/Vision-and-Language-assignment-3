@@ -1,0 +1,63 @@
+========== Training Log (Tue Jan  2 17:58:03 2024) ==========
+========== Training Log (Tue Jan  2 18:00:37 2024) ==========
+========== Training Log (Tue Jan  2 18:00:56 2024) ==========
+========== Training Log (Tue Jan  2 18:17:51 2024) ==========
+========== Training Log (Tue Jan  2 18:50:40 2024) ==========
+========== Training Log (Tue Jan  2 18:53:04 2024) ==========
+========== Training Log (Tue Jan  2 19:50:54 2024) ==========
+========== Training Log (Tue Jan  2 19:51:56 2024) ==========
+========== Training Log (Tue Jan  2 19:53:13 2024) ==========
+========== Training Log (Tue Jan  2 19:53:52 2024) ==========
+========== Training Log (Tue Jan  2 20:38:33 2024) ==========
+[Epoch: 1 Iters: 49, Total Iters:50, Time: 1.001] speaker_loss: 2.4810 avg_speaker_loss: 3.0635 sim_loss: 2.1667 avg_sim_loss: 4.0440 cycle_loss: 4.8529 avg_cycle_loss: 4.8566 total_loss: 2.7026 avg_total_loss: 3.4727 logit_scale: 2.7366 logit_scale_cycle: 2.7183 
+[Epoch: 2 Iters: 32, Total Iters:100, Time: 1.023] speaker_loss: 1.4192 avg_speaker_loss: 1.6424 sim_loss: 0.0289 avg_sim_loss: 0.2005 cycle_loss: 4.8558 avg_cycle_loss: 4.8544 total_loss: 1.4269 avg_total_loss: 1.6673 logit_scale: 2.7585 logit_scale_cycle: 2.7183 
+[Epoch: 3 Iters: 15, Total Iters:150, Time: 1.052] speaker_loss: 1.1432 avg_speaker_loss: 1.2008 sim_loss: 0.0073 avg_sim_loss: 0.0106 cycle_loss: 4.8529 avg_cycle_loss: 4.8532 total_loss: 1.1488 avg_total_loss: 1.2067 logit_scale: 2.7620 logit_scale_cycle: 2.7183 
+========== Training Log (Tue Jan  2 20:41:58 2024) ==========
+[Epoch: 1 Iters: 49, Total Iters:50, Time: 1.030] speaker_loss: 2.4810 avg_speaker_loss: 3.0635 sim_loss: 2.1667 avg_sim_loss: 4.0440 cycle_loss: 4.8529 avg_cycle_loss: 4.8566 total_loss: 2.7026 avg_total_loss: 3.4727 logit_scale: 2.7366 logit_scale_cycle: 2.7183 
+[Epoch: 2 Iters: 32, Total Iters:100, Time: 1.021] speaker_loss: 1.4192 avg_speaker_loss: 1.6424 sim_loss: 0.0289 avg_sim_loss: 0.2005 cycle_loss: 4.8558 avg_cycle_loss: 4.8544 total_loss: 1.4269 avg_total_loss: 1.6673 logit_scale: 2.7585 logit_scale_cycle: 2.7183 
+[Epoch: 3 Iters: 15, Total Iters:150, Time: 1.014] speaker_loss: 1.1432 avg_speaker_loss: 1.2008 sim_loss: 0.0073 avg_sim_loss: 0.0106 cycle_loss: 4.8529 avg_cycle_loss: 4.8532 total_loss: 1.1488 avg_total_loss: 1.2067 logit_scale: 2.7620 logit_scale_cycle: 2.7183 
+[Epoch: 3 Iters: 65, Total Iters:200, Time: 1.024] speaker_loss: 1.1177 avg_speaker_loss: 1.1554 sim_loss: 0.0031 avg_sim_loss: 0.0070 cycle_loss: 4.8521 avg_cycle_loss: 4.8536 total_loss: 1.1229 avg_total_loss: 1.1610 logit_scale: 2.7635 logit_scale_cycle: 2.7183 
+[Epoch: 4 Iters: 48, Total Iters:250, Time: 1.042] speaker_loss: 1.0879 avg_speaker_loss: 1.1212 sim_loss: 0.0015 avg_sim_loss: 0.0032 cycle_loss: 4.8540 avg_cycle_loss: 4.8532 total_loss: 1.0929 avg_total_loss: 1.1264 logit_scale: 2.7645 logit_scale_cycle: 2.7183 
+[Epoch: 5 Iters: 31, Total Iters:300, Time: 1.036] speaker_loss: 1.0965 avg_speaker_loss: 1.1091 sim_loss: 0.0018 avg_sim_loss: 0.0018 cycle_loss: 4.8544 avg_cycle_loss: 4.8529 total_loss: 1.1015 avg_total_loss: 1.1141 logit_scale: 2.7652 logit_scale_cycle: 2.7183 
+[Epoch: 6 Iters: 14, Total Iters:350, Time: 1.026] speaker_loss: 1.0861 avg_speaker_loss: 1.0941 sim_loss: 0.0007 avg_sim_loss: 0.0012 cycle_loss: 4.8506 avg_cycle_loss: 4.8528 total_loss: 1.0910 avg_total_loss: 1.0991 logit_scale: 2.7658 logit_scale_cycle: 2.7183 
+[Epoch: 6 Iters: 64, Total Iters:400, Time: 1.015] speaker_loss: 1.0971 avg_speaker_loss: 1.0880 sim_loss: 0.0012 avg_sim_loss: 0.0010 cycle_loss: 4.8521 avg_cycle_loss: 4.8524 total_loss: 1.1020 avg_total_loss: 1.0929 logit_scale: 2.7663 logit_scale_cycle: 2.7183 
+[Epoch: 7 Iters: 47, Total Iters:450, Time: 1.014] speaker_loss: 1.0702 avg_speaker_loss: 1.0901 sim_loss: 0.0007 avg_sim_loss: 0.0008 cycle_loss: 4.8547 avg_cycle_loss: 4.8530 total_loss: 1.0752 avg_total_loss: 1.0950 logit_scale: 2.7668 logit_scale_cycle: 2.7183 
+[Epoch: 8 Iters: 30, Total Iters:500, Time: 1.017] speaker_loss: 1.0775 avg_speaker_loss: 1.0912 sim_loss: 0.0013 avg_sim_loss: 0.0006 cycle_loss: 4.8513 avg_cycle_loss: 4.8528 total_loss: 1.0824 avg_total_loss: 1.0961 logit_scale: 2.7672 logit_scale_cycle: 2.7183 
+[Epoch: 9 Iters: 13, Total Iters:550, Time: 1.026] speaker_loss: 1.0625 avg_speaker_loss: 1.0799 sim_loss: 0.0002 avg_sim_loss: 0.0005 cycle_loss: 4.8510 avg_cycle_loss: 4.8521 total_loss: 1.0673 avg_total_loss: 1.0848 logit_scale: 2.7675 logit_scale_cycle: 2.7183 
+[Epoch: 9 Iters: 63, Total Iters:600, Time: 1.012] speaker_loss: 1.0734 avg_speaker_loss: 1.0741 sim_loss: 0.0008 avg_sim_loss: 0.0005 cycle_loss: 4.8540 avg_cycle_loss: 4.8524 total_loss: 1.0783 avg_total_loss: 1.0790 logit_scale: 2.7678 logit_scale_cycle: 2.7183 
+[Epoch: 10 Iters: 46, Total Iters:650, Time: 1.010] speaker_loss: 1.0188 avg_speaker_loss: 1.0451 sim_loss: 0.0020 avg_sim_loss: 0.0009 cycle_loss: 4.8532 avg_cycle_loss: 4.8523 total_loss: 1.0238 avg_total_loss: 1.0500 logit_scale: 2.7683 logit_scale_cycle: 2.7183 
+[Epoch: 11 Iters: 29, Total Iters:700, Time: 1.022] speaker_loss: 1.0212 avg_speaker_loss: 1.0313 sim_loss: 0.0014 avg_sim_loss: 0.0013 cycle_loss: 4.8513 avg_cycle_loss: 4.8523 total_loss: 1.0262 avg_total_loss: 1.0362 logit_scale: 2.7689 logit_scale_cycle: 2.7183 
+[Epoch: 12 Iters: 12, Total Iters:750, Time: 1.017] speaker_loss: 1.0316 avg_speaker_loss: 1.0265 sim_loss: 0.0043 avg_sim_loss: 0.0017 cycle_loss: 4.8499 avg_cycle_loss: 4.8518 total_loss: 1.0369 avg_total_loss: 1.0315 logit_scale: 2.7693 logit_scale_cycle: 2.7183 
+[Epoch: 12 Iters: 62, Total Iters:800, Time: 1.009] speaker_loss: 1.0011 avg_speaker_loss: 1.0156 sim_loss: 0.0020 avg_sim_loss: 0.0011 cycle_loss: 4.8525 avg_cycle_loss: 4.8519 total_loss: 1.0062 avg_total_loss: 1.0206 logit_scale: 2.7699 logit_scale_cycle: 2.7183 
+[Epoch: 13 Iters: 45, Total Iters:850, Time: 1.024] speaker_loss: 1.0125 avg_speaker_loss: 1.0060 sim_loss: 0.0050 avg_sim_loss: 0.0010 cycle_loss: 4.8515 avg_cycle_loss: 4.8517 total_loss: 1.0179 avg_total_loss: 1.0110 logit_scale: 2.7706 logit_scale_cycle: 2.7183 
+[Epoch: 14 Iters: 28, Total Iters:900, Time: 1.038] speaker_loss: 0.9883 avg_speaker_loss: 1.0047 sim_loss: 0.0007 avg_sim_loss: 0.0007 cycle_loss: 4.8503 avg_cycle_loss: 4.8519 total_loss: 0.9932 avg_total_loss: 1.0097 logit_scale: 2.7714 logit_scale_cycle: 2.7183 
+[Epoch: 15 Iters: 11, Total Iters:950, Time: 1.045] speaker_loss: 1.0086 avg_speaker_loss: 1.0016 sim_loss: 0.0023 avg_sim_loss: 0.0010 cycle_loss: 4.8492 avg_cycle_loss: 4.8513 total_loss: 1.0136 avg_total_loss: 1.0065 logit_scale: 2.7719 logit_scale_cycle: 2.7183 
+[Epoch: 15 Iters: 61, Total Iters:1000, Time: 1.015] speaker_loss: 1.0084 avg_speaker_loss: 0.9934 sim_loss: 0.0002 avg_sim_loss: 0.0007 cycle_loss: 4.8504 avg_cycle_loss: 4.8517 total_loss: 1.0133 avg_total_loss: 0.9984 logit_scale: 2.7724 logit_scale_cycle: 2.7183 
+========== Training Log (Tue Jan  2 21:27:43 2024) ==========
+========== Training Log (Tue Jan  2 21:29:26 2024) ==========
+========== Training Log (Tue Jan  2 21:29:35 2024) ==========
+========== Training Log (Tue Jan  2 21:29:43 2024) ==========
+========== Training Log (Tue Jan  2 21:36:18 2024) ==========
+========== Training Log (Tue Jan  2 21:36:27 2024) ==========
+========== Training Log (Tue Jan  2 21:39:39 2024) ==========
+========== Training Log (Tue Jan  2 21:41:28 2024) ==========
+[Epoch: 1 Iters: 49, Total Iters:50, Time: 1.618] speaker_loss: 2.4810 avg_speaker_loss: 3.0635 sim_loss: 2.1667 avg_sim_loss: 4.0440 cycle_loss: 4.8529 avg_cycle_loss: 4.8566 total_loss: 2.7026 avg_total_loss: 3.4727 logit_scale: 2.7366 logit_scale_cycle: 2.7183 
+[Epoch: 2 Iters: 32, Total Iters:100, Time: 1.701] speaker_loss: 1.4192 avg_speaker_loss: 1.6424 sim_loss: 0.0289 avg_sim_loss: 0.2005 cycle_loss: 4.8558 avg_cycle_loss: 4.8544 total_loss: 1.4269 avg_total_loss: 1.6673 logit_scale: 2.7585 logit_scale_cycle: 2.7183 
+[Epoch: 3 Iters: 15, Total Iters:150, Time: 1.378] speaker_loss: 1.1432 avg_speaker_loss: 1.2008 sim_loss: 0.0073 avg_sim_loss: 0.0106 cycle_loss: 4.8529 avg_cycle_loss: 4.8532 total_loss: 1.1488 avg_total_loss: 1.2067 logit_scale: 2.7620 logit_scale_cycle: 2.7183 
+[Epoch: 3 Iters: 65, Total Iters:200, Time: 1.369] speaker_loss: 1.1177 avg_speaker_loss: 1.1554 sim_loss: 0.0031 avg_sim_loss: 0.0070 cycle_loss: 4.8521 avg_cycle_loss: 4.8536 total_loss: 1.1229 avg_total_loss: 1.1610 logit_scale: 2.7635 logit_scale_cycle: 2.7183 
+[Epoch: 4 Iters: 48, Total Iters:250, Time: 1.396] speaker_loss: 1.0879 avg_speaker_loss: 1.1212 sim_loss: 0.0015 avg_sim_loss: 0.0032 cycle_loss: 4.8540 avg_cycle_loss: 4.8532 total_loss: 1.0929 avg_total_loss: 1.1264 logit_scale: 2.7645 logit_scale_cycle: 2.7183 
+[Epoch: 5 Iters: 31, Total Iters:300, Time: 1.436] speaker_loss: 1.0965 avg_speaker_loss: 1.1091 sim_loss: 0.0018 avg_sim_loss: 0.0018 cycle_loss: 4.8544 avg_cycle_loss: 4.8529 total_loss: 1.1015 avg_total_loss: 1.1141 logit_scale: 2.7652 logit_scale_cycle: 2.7183 
+[Epoch: 6 Iters: 14, Total Iters:350, Time: 1.395] speaker_loss: 1.0861 avg_speaker_loss: 1.0941 sim_loss: 0.0007 avg_sim_loss: 0.0012 cycle_loss: 4.8506 avg_cycle_loss: 4.8528 total_loss: 1.0910 avg_total_loss: 1.0991 logit_scale: 2.7658 logit_scale_cycle: 2.7183 
+[Epoch: 6 Iters: 64, Total Iters:400, Time: 1.378] speaker_loss: 1.0971 avg_speaker_loss: 1.0880 sim_loss: 0.0012 avg_sim_loss: 0.0010 cycle_loss: 4.8521 avg_cycle_loss: 4.8524 total_loss: 1.1020 avg_total_loss: 1.0929 logit_scale: 2.7663 logit_scale_cycle: 2.7183 
+[Epoch: 7 Iters: 47, Total Iters:450, Time: 1.410] speaker_loss: 1.0702 avg_speaker_loss: 1.0901 sim_loss: 0.0007 avg_sim_loss: 0.0008 cycle_loss: 4.8547 avg_cycle_loss: 4.8530 total_loss: 1.0752 avg_total_loss: 1.0950 logit_scale: 2.7668 logit_scale_cycle: 2.7183 
+[Epoch: 8 Iters: 30, Total Iters:500, Time: 1.411] speaker_loss: 1.0775 avg_speaker_loss: 1.0912 sim_loss: 0.0013 avg_sim_loss: 0.0006 cycle_loss: 4.8513 avg_cycle_loss: 4.8528 total_loss: 1.0824 avg_total_loss: 1.0961 logit_scale: 2.7672 logit_scale_cycle: 2.7183 
+[Epoch: 9 Iters: 13, Total Iters:550, Time: 1.405] speaker_loss: 1.0625 avg_speaker_loss: 1.0799 sim_loss: 0.0002 avg_sim_loss: 0.0005 cycle_loss: 4.8510 avg_cycle_loss: 4.8521 total_loss: 1.0673 avg_total_loss: 1.0848 logit_scale: 2.7675 logit_scale_cycle: 2.7183 
+[Epoch: 9 Iters: 63, Total Iters:600, Time: 1.374] speaker_loss: 1.0734 avg_speaker_loss: 1.0741 sim_loss: 0.0008 avg_sim_loss: 0.0005 cycle_loss: 4.8540 avg_cycle_loss: 4.8524 total_loss: 1.0783 avg_total_loss: 1.0790 logit_scale: 2.7678 logit_scale_cycle: 2.7183 
+[Epoch: 10 Iters: 46, Total Iters:650, Time: 1.390] speaker_loss: 1.0188 avg_speaker_loss: 1.0451 sim_loss: 0.0020 avg_sim_loss: 0.0009 cycle_loss: 4.8532 avg_cycle_loss: 4.8523 total_loss: 1.0238 avg_total_loss: 1.0500 logit_scale: 2.7683 logit_scale_cycle: 2.7183 
+[Epoch: 11 Iters: 29, Total Iters:700, Time: 1.400] speaker_loss: 1.0212 avg_speaker_loss: 1.0313 sim_loss: 0.0014 avg_sim_loss: 0.0013 cycle_loss: 4.8513 avg_cycle_loss: 4.8523 total_loss: 1.0262 avg_total_loss: 1.0362 logit_scale: 2.7689 logit_scale_cycle: 2.7183 
+[Epoch: 12 Iters: 12, Total Iters:750, Time: 1.404] speaker_loss: 1.0316 avg_speaker_loss: 1.0265 sim_loss: 0.0043 avg_sim_loss: 0.0017 cycle_loss: 4.8499 avg_cycle_loss: 4.8518 total_loss: 1.0369 avg_total_loss: 1.0315 logit_scale: 2.7693 logit_scale_cycle: 2.7183 
+[Epoch: 12 Iters: 62, Total Iters:800, Time: 1.375] speaker_loss: 1.0011 avg_speaker_loss: 1.0156 sim_loss: 0.0020 avg_sim_loss: 0.0011 cycle_loss: 4.8525 avg_cycle_loss: 4.8519 total_loss: 1.0062 avg_total_loss: 1.0206 logit_scale: 2.7699 logit_scale_cycle: 2.7183 
+[Epoch: 13 Iters: 45, Total Iters:850, Time: 1.408] speaker_loss: 1.0125 avg_speaker_loss: 1.0060 sim_loss: 0.0050 avg_sim_loss: 0.0010 cycle_loss: 4.8515 avg_cycle_loss: 4.8517 total_loss: 1.0179 avg_total_loss: 1.0110 logit_scale: 2.7706 logit_scale_cycle: 2.7183 
+[Epoch: 14 Iters: 28, Total Iters:900, Time: 1.428] speaker_loss: 0.9883 avg_speaker_loss: 1.0047 sim_loss: 0.0007 avg_sim_loss: 0.0007 cycle_loss: 4.8503 avg_cycle_loss: 4.8519 total_loss: 0.9932 avg_total_loss: 1.0097 logit_scale: 2.7714 logit_scale_cycle: 2.7183 
+[Epoch: 15 Iters: 11, Total Iters:950, Time: 1.406] speaker_loss: 1.0086 avg_speaker_loss: 1.0016 sim_loss: 0.0023 avg_sim_loss: 0.0010 cycle_loss: 4.8492 avg_cycle_loss: 4.8513 total_loss: 1.0136 avg_total_loss: 1.0065 logit_scale: 2.7719 logit_scale_cycle: 2.7183 
+[Epoch: 15 Iters: 61, Total Iters:1000, Time: 1.375] speaker_loss: 1.0084 avg_speaker_loss: 0.9934 sim_loss: 0.0002 avg_sim_loss: 0.0007 cycle_loss: 4.8504 avg_cycle_loss: 4.8517 total_loss: 1.0133 avg_total_loss: 0.9984 logit_scale: 2.7724 logit_scale_cycle: 2.7183 

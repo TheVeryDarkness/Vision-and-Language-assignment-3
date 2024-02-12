@@ -35,9 +35,22 @@ class PositionEncoding(nn.Module):
         you can refer to the lecture slides for the formula, or https://kazemnejad.com/blog/transformer_architecture_positional_encoding/ for a quick explanation.
         """
         # Compute the positional encodings once in log space.
-        pe = torch.zeros(max_len, n_filters)  # (L, D)
+
+        # Almost the same with [the tutorial](https://pytorch.org/tutorials/beginner/transformer_tutorial.html).
+
+        # (L, D)
+        pe = torch.zeros(max_len, n_filters)
+
+        # (L, 1)
         position = torch.arange(0, max_len).float().unsqueeze(1)
+
+        # (D/2)
+        #
+        # :math: `\exp{- \frac{2i}{D} \times \ln{10000}}`
+        # Explained on class.
         div_term = torch.exp(torch.arange(0, n_filters, 2).float() * - (math.log(10000.0) / n_filters))
+        
+        # (L, D/2)
         pe[:, 0::2] = torch.sin(position * div_term)
         pe[:, 1::2] = torch.cos(position * div_term)
         self.register_buffer("pe", pe)  # buffer is a tensor, not a variable, (L, D)
@@ -116,12 +129,12 @@ class SelfAttention(nn.Module):
 
         self.dropout = nn.Dropout(0.1)
 
-    def transpose_for_scores(self, x):
+    def transpose_for_scores(self, x: torch.Tensor):
         new_x_shape = x.size()[:-1] + (self.num_attention_heads, self.attention_head_size)  # (N, L, nh, dh)
         x = x.view(*new_x_shape)
         return x.permute(0, 2, 1, 3)  # (N, nh, L, dh)
 
-    def forward(self, query_states, key_states, value_states, attention_mask=None):
+    def forward(self, query_states: torch.Tensor, key_states: torch.Tensor, value_states: torch.Tensor, attention_mask: torch.Tensor | None = None):
         """
         Args:
             query_states: (N, Lq, D)
@@ -137,6 +150,8 @@ class SelfAttention(nn.Module):
         note that the attention mask should be applied to the attention scores before softmax. 1 means not masked, 0 means masked.
         you should also apply dropout to the attention scores.
         """
+        # https://spotintelligence.com/2023/01/31/self-attention/
+
         # only need to mask the dimension where the softmax (last dim) is applied, as another dim (second last)
         # will be ignored in future computation anyway
         if attention_mask is not None:
@@ -186,7 +201,7 @@ class CrossAttention(nn.Module):
 
         self.dropout = nn.Dropout(0.1)
 
-    def transpose_for_scores(self, x):
+    def transpose_for_scores(self, x: torch.Tensor):
         new_x_shape = x.size()[:-1] + (self.num_attention_heads, self.attention_head_size)  # (N, L, nh, dh)
         x = x.view(*new_x_shape)
         return x.permute(0, 2, 1, 3)  # (N, nh, L, dh)
@@ -207,6 +222,8 @@ class CrossAttention(nn.Module):
         note that the attention mask should be applied to the attention scores before softmax. 1 means not masked, 0 means masked.
         you should also apply dropout to the attention scores, and return the mean attention scores over all heads.
         """
+        # https://vaclavkosar.com/ml/cross-attention-in-transformer-architecture
+
         # only need to mask the dimension where the softmax (last dim) is applied, as another dim (second last)
         # will be ignored in future computation anyway
         if attention_mask is not None:
